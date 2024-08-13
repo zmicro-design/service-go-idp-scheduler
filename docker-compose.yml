@@ -1,0 +1,17 @@
+services:
+  go-idp-scheduler:
+    restart: always
+    image: ${SERVICE_IMAGE_REGISTRY}/whatwewant/go-idp-scheduler:${SERVICE_GO_IDP_SCHEDULER_IMAGE_VERSION}
+    ports:
+      - 0.0.0.0:${SERVICE_GO_IDP_SCHEDULER_PORT}:8080
+    privileged: true
+    # environment:
+    #   USERNAME: ${SERVICE_GO_IDP_SCHEDULER_USERNAME}
+    #   PASSWORD: ${SERVICE_GO_IDP_SCHEDULER_PASSWORD}
+    mem_limit: ${SERVICE_GO_IDP_SCHEDULER_MEM_LIMIT}
+    cpus: ${SERVICE_GO_IDP_SCHEDULER_CPU_LIMIT}
+      
+networks:
+  default:
+    external: true
+    name: compose-ingress

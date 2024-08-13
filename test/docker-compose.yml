@@ -1,0 +1,13 @@
+services:
+  go-idp-scheduler:
+    restart: always
+    image: whatwewant/go-idp-scheduler:${SERVICE_GO-IDP-SCHEDULER_IMAGE_VERSION}
+    environment:
+      PORT: $SERVICE_GO-IDP-SCHEDULER_PORT
+      USERNAME: ${SERVICE_GO-IDP-SCHEDULER_USERNAME}
+      PASSWORD: ${SERVICE_GO-IDP-SCHEDULER_PASSWORD}
+      
+networks:
+  default:
+    external: true
+    name: compose-ingress
